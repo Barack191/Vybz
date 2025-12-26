@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zerclix Technologies — Team</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="team.css">
+</head>
+<body data-theme="dark">
+  <div class="animated-bg">
+    <div class="gradient-orb orb-1"></div>
+    <div class="gradient-orb orb-2"></div>
+    <div class="gradient-orb orb-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+  <canvas id="particles"></canvas>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- TEAM PAGE -->
+  <div id="teamPage" class="page active">
+    <div class="team-page">
+      <!-- Enhanced Header -->
+      <header>
+        <div class="header-left">
+          <div class="logo-small" onclick="window.location.href='index.html'">
+             <img src="logo/Logo.PNG" alt="Zerclix Logo" class="logo-img">
+              <defs>
+                <linearGradient id="headerLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <path d="M20,20 L80,20 L50,50 L80,80 L20,80 L50,50 Z" fill="url(#headerLogo)" />
+              <circle cx="50" cy="50" r="8" fill="#fff" />
+            </svg>
+          </div>
+          <div class="nav-menu">
+            <button class="nav-btn" data-section="dashboard" onclick="window.location.href='index.html'">Dashboard</button>
+            <button class="nav-btn" data-section="services" onclick="window.location.href='index.html'">Services</button>
+            <button class="nav-btn" data-section="projects" onclick="window.location.href='project.html'">Projects</button>
+            <button class="nav-btn active" data-section="team" onclick="window.location.href='team.html'">Team</button>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <div class="search-bar">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Search team members...">
+            <button class="search-clear" id="searchClear">✕</button>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="icon-btn" id="themeToggle" title="Toggle Theme">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </button>
+
+          <button class="icon-btn" id="notificationBtn" title="Notifications">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+            <span class="notification-badge">5</span>
+          </button>
+
+          <button class="icon-btn" title="Messages">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <span class="notification-badge">3</span>
+          </button>
+
+          <div class="profile-avatar" id="profileBtn">
+            <span id="userInitial">U</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Team Header -->
+      <div class="team-header">
+        <div class="section-header">
+          <h2 class="section-title">Our Team</h2>
+          <p class="section-subtitle">Meet the talented individuals driving our success</p>
+        </div>
+      </div>
+
+      <!-- Project controls moved to project.html -->
+
+      <!-- Team Members Grid -->
+      <div class="team-members">
+        <div class="members-grid">
+          <!-- Team Member 1 -->
+          <div class="member-card" data-member-id="barack-omondi" data-member-name="Barack Omondi" data-member-role="Chief Executive Officer">
+            <div class="member-header">
+              <div class="member-avatar">
+                <img src="https://ui-avatars.com/api/?name=Barack+Omondi&background=0D8ABC&color=fff" alt="Barack Omondi">
+                <span class="status-indicator online"></span>
+              </div>
+              <div class="member-actions">
+                <button class="icon-btn small msg-btn" title="Message">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </button>
+                <button class="icon-btn small schedule-btn" title="Schedule Meeting">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="member-info">
+              <h3>Barack Omondi</h3>
+              <p class="member-role">Chief Executive Officer</p>
+              <p class="member-bio">Visionary leader with 15+ years in tech innovation. Passionate about transforming businesses through digital solutions.</p>
+            </div>
+            <div class="member-skills">
+              <span class="skill-tag">Leadership</span>
+              <span class="skill-tag">Strategy</span>
+              <span class="skill-tag">Innovation</span>
+            </div>
+            <div class="member-social">
+          <a href="#" class="social-link" title="Social link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                </svg>
+              </a>
+            </div>
+            <div class="member-status">
+              <p>Working on Project X</p>
+            </div>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="member-card" data-member-id="jordan-lee" data-member-name="Jordan Lee" data-member-role="Lead Developer">
+            <div class="member-header">
+              <div class="member-avatar">
+                <img src="https://ui-avatars.com/api/?name=Jordan+Lee&background=7C3AED&color=fff" alt="Jordan Lee">
+                <span class="status-indicator busy"></span>
+              </div>
+              <div class="member-actions">
+                <button class="icon-btn small msg-btn" title="Message">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </button>
+                <button class="icon-btn small schedule-btn" title="Schedule Meeting">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="member-info">
+              <h3>Jordan Lee</h3>
+              <p class="member-role">Lead Developer</p>
+              <p class="member-bio">Full-stack developer specializing in cloud solutions and microservices architecture. Open-source contributor.</p>
+            </div>
+            <div class="member-skills">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">AWS</span>
+            </div>
+            <div class="member-social">
+              <a href="#" class="social-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+            </div>
+            <div class="member-status">
+              <p>Busy with sprint development</p>
+            </div>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="member-card" data-member-id="taylor-kim" data-member-name="Taylor Kim" data-member-role="UX/UI Designer">
+            <div class="member-header">
+              <div class="member-avatar">
+                <img src="https://ui-avatars.com/api/?name=Taylor+Kim&background=F59E0B&color=fff" alt="Taylor Kim">
+                <span class="status-indicator away"></span>
+              </div>
+              <div class="member-actions">
+                <button class="icon-btn small msg-btn" title="Message">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </button>
+                <button class="icon-btn small schedule-btn" title="Schedule Meeting">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="member-info">
+              <h3>Taylor Kim</h3>
+              <p class="member-role">UX/UI Designer</p>
+              <p class="member-bio">Creative designer focused on user-centered experiences. Expert in design systems and accessibility standards.</p>
+            </div>
+            <div class="member-skills">
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">UI/UX</span>
+              <span class="skill-tag">Prototyping</span>
+              <span class="skill-tag">Accessibility</span>
+            </div>
+            <div class="member-social">
+              <a href="#" class="social-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                  <circle cx="12" cy="13" r="4"/>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+            </div>
+            <div class="member-status">
+              <p>Available for consultation</p>
+            </div>
+          </div>
+
+          <!-- Team Member 4 -->
+          <div class="member-card" data-member-id="sam-rivera" data-member-name="Sam Rivera" data-member-role="Cybersecurity Specialist" data-member-status="online">
+            <div class="member-header">
+              <div class="member-avatar">
+                <img src="https://ui-avatars.com/api/?name=Sam+Rivera&background=10B981&color=fff" alt="Sam Rivera">
+                <span class="status-indicator online"></span>
+              </div>
+              <div class="member-actions">
+                <button class="icon-btn small msg-btn" title="Message">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </button>
+                <button class="icon-btn small schedule-btn" title="Schedule Meeting">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="member-info">
+              <h3>Sam Rivera</h3>
+              <p class="member-role">Cybersecurity Specialist</p>
+              <p class="member-bio">Security expert with focus on threat analysis and compliance. Certified ethical hacker and security trainer.</p>
+            </div>
+            <div class="member-skills">
+              <span class="skill-tag">CISSP</span>
+              <span class="skill-tag">Penetration Testing</span>
+              <span class="skill-tag">Risk Management</span>
+            </div>
+            <div class="member-social">
+              <a href="#" class="social-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect x="2" y="9" width="4" height="12"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </a>
+              <a href="#" class="social-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                </svg>
+              </a>
+            </div>
+            <div class="member-status">
+              <p>Conducting security audit</p>
+            </div>
+          </div>
+
+      <!-- Team Member 5 - Duncan Ojumbo -->
+      <div class="member-card" data-member-id="duncan-ojumbo" data-member-name="Duncan Ojumbo" data-member-role="Software Developer">
+        <div class="member-header">
+          <div class="member-avatar">
+            <img src="https://ui-avatars.com/api/?name=Duncan+Ojumbo&background=EC4899&color=fff" alt="Duncan Ojumbo">
+            <span class="status-indicator online"></span>
+          </div>
+          <div class="member-actions">
+            <button class="icon-btn small msg-btn" title="Message">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </button>
+            <button class="icon-btn small schedule-btn" title="Schedule Meeting">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3>Duncan Ojumbo</h3>
+          <p class="member-role">Software Developer</p>
+          <p class="member-bio">Passionate full-stack developer with expertise in modern JavaScript frameworks and backend systems. Contributor to open-source projects.</p>
+        </div>
+        <div class="member-skills">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Database Design</span>
+        </div>
+        <div class="member-social">
+          <a href="#" class="social-link" title="Social link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+        </div>
+        <div class="member-status">
+          <p>Active on current sprint</p>
+        </div>
+      </div>
+
+      <!--Team member 6 Mary Marion-->   
+      <div class="member-card" data-member-id="mary-marion" data-member-name="Mary Marion" data-member-role="UX/UI Designer">
+        <div class="member-header">
+          <div class="member-avatar">
+            <img src="https://ui-avatars.com/api/?name=Mary+Marion&background=8B5CF6&color=fff" alt="Mary Marion">
+            <span class="status-indicator online"></span>
+          </div>
+          <div class="member-actions">
+            <button class="icon-btn small msg-btn" title="Message">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </button>
+            <button class="icon-btn small schedule-btn" title="Schedule Meeting">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="member-info">
+          <h3>Mary Marion</h3>
+          <p class="member-role">UX/UI Designer</p>
+          <p class="member-bio">Innovative UX/UI designer dedicated to crafting intuitive user experiences. Skilled in wireframing, prototyping, and user research.</p>
+        </div>
+        <div class="member-skills">
+          <span class="skill-tag">Adobe XD</span>
+          <span class="skill-tag">User Research</span>
+          <span class="skill-tag">Interaction Design</span>
+          <span class="skill-tag">Visual Design</span>
+        </div>
+        <div class="member-social">
+          <a href="#" class="social-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+        </div>
+        <div class="member-status">
+          <p>Designing new app interface</p>
+        </div>
+      </div>
+      
+      <!--Team member 7 Mark Benedict-->  
+<div class="member-card" data-member-id="mark-benedict" data-member-name="Mark Benedict" data-member-role="DevOps Engineer">
+        <div class="member-header">
+          <div class="member-avatar">
+            <img src="https://ui-avatars.com/api/?name=Mark+Benedict&background=EF4444&color=fff" alt="Mark Benedict">
+            <span class="status-indicator busy"></span>
+          </div>
+          <div class="member-actions">
+            <button class="icon-btn small msg-btn" title="Message">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </button>
+            <button class="icon-btn small schedule-btn" title="Schedule Meeting">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="member-info">
+          <h4>Mark Benedict</h4>
+          <p class="member-role">DevOps Engineer</p>
+          <p class="member-bio">Expert in design and development of scalable web applications and APIs.</p>
+        </div>
+        <div class="member-skills">
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">Monitoring</span>
+        </div>
+        <div class="member-social">
+          <a href="#" class="social-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+        </div>
+        <div class="member-status">
+          <p>Setting up CI/CD pipelines</p>
+        </div>
+      </div>
+      </div>
+    </div>
+
+      <!--Team member 8 Stephen Otieno-->
+   <div class="member-card" data-member-id="Stephen Otieno" data-member-name="Stephen Otieno" data-member-role="DevOps Engineer">
+        <div class="member-header">
+          <div class="member-avatar">
+            <img src="https://ui-avatars.com/api/?name=Stephen+Otieno&background=EF4444&color=fff" alt="Stephen Otieno">
+            <span class="status-indicator busy"></span>
+          </div>
+          <div class="member-actions">
+            <button class="icon-btn small msg-btn" title="Message">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </button>
+            <button class="icon-btn small schedule-btn" title="Schedule Meeting">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="member-info">
+          <h4>Stephen Otieno</h4>
+          <p class="member-role">Programer</p>
+          <p class="member-bio">Expert in programming and software development.</p>
+        </div>
+        <div class="member-skills">
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">CI/CD</span>
+          <span class="skill-tag">Terraform</span>
+          <span class="skill-tag">Programming</span>
+        </div>
+        <div class="member-social">
+          <a href="#" class="social-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+        </div>
+        <div class="member-status">
+          <p>Setting up CI/CD pipelines</p>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <!--Team member 9 Joseph Rukwa-->
+  <div class="member-card" data-member-id="Joseph Rukwa" data-member-name="Joseph Rukwa" data-member-role="DevOps Engineer">
+    <div class="member-header">
+      <div class="member-avatar">
+        <img src="https://ui-avatars.com/api/?name=Joseph+Rukwa&background=EF4444&color=fff" alt="Joseph Rukwa">
+        <span class="status-indicator busy"></span>
+      </div>
+      <div class="member-actions">
+        <button class="icon-btn small msg-btn" title="Message">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </button>
+        <button class="icon-btn small schedule-btn" title="Schedule Meeting">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="member-info">
+      <h4>Joseph Rukwa</h4>
+      <p class="member-role">DevOps Engineer</p>
+      <p class="member-bio">Expert in DevOps practices and infrastructure automation.</p>
+    </div>
+    <div class="member-skills">
+      <span class="skill-tag">DevOps</span>
+      <span class="skill-tag">CI/CD</span>
+      <span class="skill-tag">Infrastructure Automation</span>
+      <span class="skill-tag">Monitoring</span>
+    </div>
+    <div class="member-social">
+      <a href="#" class="social-link">
+        <svg width="16" height="16" viewBox="-5 -5 30 30">
+          <!-- LinkedIn icon -->
+          <path d="
+            M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0
+            <!-- Add more paths here if needed -->
+          "/>
+        </svg>
+      </a>
+      <a href="#" class="social-link" title="Social link">
+        <!-- Twitter icon -->
+        <svg width= "16", height= "16", viewBox= "0, -5, -5, -5, -5, -5, -5, -5, -5, -5, -5, -5, -5, -5, -5, -5", fill= "none", stroke= "currentColor", stroke-width= "2">
+          <!-- Twitter path -->
+          <!-- Add more paths here if needed -->
+        </svg>
+      </a>
+    </div>
+    <div class="member-status">
+      <p>Setting up CI/CD pipelines</p>
+    </div>
+      </div>
+
+
+ 
+
+
+      <!--Team member extra info-->  
+        <div class="member-extra-info" style="display: none;">
+          <p class="member-department">Development Team</p>
+          <div class="specializations">
+            <span class="spec-tag">Web Development</span>
+            <span class="spec-tag">API Design</span>
+            <span class="spec-tag">Cloud Computing</span>
+          </div>
+          <div class="current-projects">
+            <h4>Current Projects</h4>
+            <ul>
+              <li>Project Alpha - Frontend Development</li>
+              <li>Project Beta - Backend Integration</li>
+            </ul>
+            <div class="recent-activity">
+              <h4>Recent Activity</h4>
+              <ul>
+                <li>Completed feature X for Project Alpha</li>
+                <li>Fixed critical bug in Project Beta</li>
+              </ul>
+              <div class="collaboration-links">
+                <button class="btn-primary msg-btn">Send Message</button>
+                <button class="btn-secondary schedule-btn">Schedule Meeting</button>
+              </div>
+              <div class="member-status">
+                <p>Setting up CI/CD pipelines</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      <!-- Team Culture Section -->
+      <div class="team-culture">
+        <div class="section-header">
+          <h2 class="section-title">Our Culture</h2>
+          <p class="section-subtitle">What makes us unique</p>
+        </div>
+        
+        <div class="culture-grid">
+          <div class="culture-card">
+            <div class="culture-icon">🤝</div>
+            <h3>Collaboration</h3>
+            <p>We believe in the power of teamwork and shared knowledge to solve complex challenges.</p>
+          </div>
+          
+          <div class="culture-card">
+            <div class="culture-icon">🚀</div>
+            <h3>Innovation</h3>
+            <p>We constantly explore new technologies and methodologies to stay ahead of the curve.</p>
+          </div>
+          
+          <div class="culture-card">
+            <div class="culture-icon">🎯</div>
+            <h3>Excellence</h3>
+            <p>We strive for perfection in everything we do, delivering exceptional results to our clients.</p>
+          </div>
+          
+          <div class="culture-card">
+            <div class="culture-icon">🌱</div>
+            <h3>Growth</h3>
+            <p>We invest in our team's professional development and encourage continuous learning.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Achievements -->
+      <div class="team-achievements">
+        <div class="section-header">
+          <h2 class="section-title">Recent Achievements</h2>
+        </div>
+        
+        <div class="achievements-grid">
+          <div class="achievement-card">
+            <div class="achievement-icon">🏆</div>
+            <div class="achievement-content">
+              <h3>Industry Recognition</h3>
+              <p>Awarded "Best Tech Innovation" at the Global IT Summit 2023</p>
+              <span class="achievement-date">March 2023</span>
+            </div>
+          </div>
+          
+          <div class="achievement-card">
+            <div class="achievement-icon">📈</div>
+            <div class="achievement-content">
+              <h3>Project Success</h3>
+              <p>Successfully delivered 50+ projects with 98.5% client satisfaction rate</p>
+              <span class="achievement-date">February 2023</span>
+            </div>
+          </div>
+          
+          <div class="achievement-card">
+            <div class="achievement-icon">🎓</div>
+            <div class="achievement-content">
+              <h3>Team Growth</h3>
+              <p>Expanded our team by 40% with top talent from leading tech companies</p>
+              <span class="achievement-date">January 2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Member Profile Modal -->
+  <div class="modal" id="teamMemberModal">
+    <div class="modal-content team-profile-modal">
+      <div class="modal-header">
+        <h2>Team Member Profile</h2>
+        <button class="close-modal" id="closeTeamModal">&times;</button>
+      </div>
+      <div class="modal-body team-profile-body">
+        <!-- Header Section -->
+        <div class="profile-header-section">
+          <div class="profile-cover"></div>
+          <div class="profile-avatar-lg">
+            <img id="memberAvatar" src="" alt="Member Avatar">
+            <span id="memberStatusBadge" class="status-badge online"></span>
+          </div>
+          <div class="profile-summary">
+            <h3 id="memberName">Name</h3>
+            <p id="memberRole" class="member-role-large">Role</p>
+            <p id="memberDepartment" class="member-department">Department</p>
+            <div class="status-detail">
+              <span id="memberStatusText" class="status-text">Status</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bio & Expertise -->
+        <div class="profile-section">
+          <h4>About</h4>
+          <p id="memberBio" class="member-bio-full"></p>
+          <div class="specializations">
+            <h5>Specializations</h5>
+            <div id="memberSpecializations" class="spec-list"></div>
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="profile-section">
+          <h4>Skills & Expertise</h4>
+          <div id="memberSkillsFull" class="skills-full-list"></div>
+        </div>
+
+        <!-- Current Work -->
+        <div class="profile-section">
+          <h4>Current Projects</h4>
+          <div id="memberProjects" class="projects-list"></div>
+        </div>
+
+        <!-- Activity Timeline -->
+        <div class="profile-section">
+          <h4>Recent Activity</h4>
+          <div id="memberActivity" class="activity-timeline"></div>
+        </div>
+
+        <!-- Collaboration Links -->
+        <div class="profile-section">
+          <h4>Connect</h4>
+          <div class="collaboration-actions">
+            <button id="sendMessageBtn" class="btn-primary">Send Message</button>
+            <button id="scheduleMeetingBtn" class="btn-secondary">Schedule Meeting</button>
+            <button id="requestReviewBtn" class="btn-secondary">Request Review</button>
+            <button id="shareProfileBtn" class="btn-secondary">Share Profile</button>
+          </div>
+        </div>
+
+        <!-- External Links -->
+        <div class="profile-section">
+          <h4>Professional Networks</h4>
+          <div id="memberExternalLinks" class="external-links"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="backToTeamBtn">Back to Team</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATIONS PANEL -->
+  <div class="notifications-panel" id="notificationsPanel">
+    <div class="notifications-header">
+      <h3>Notifications</h3>
+      <button id="closeNotifications" class="icon-btn" title="Close Notifications">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="notifications-list">
+      <div class="notification-item">
+        <div class="notification-icon">🔔</div>
+        <div class="notification-content">
+          <h4>Team Update</h4>
+          <p>New team members have joined your project</p>
+          <span class="notification-time">5 min ago</span>
+        </div>
+      </div>
+      <div class="notification-item">
+        <div class="notification-icon">💬</div>
+        <div class="notification-content">
+          <h4>New Message</h4>
+          <p>Sarah sent a message in the team chat</p>
+          <span class="notification-time">20 min ago</span>
+        </div>
+      </div>
+      <div class="notification-item">
+        <div class="notification-icon">📅</div>
+        <div class="notification-content">
+          <h4>Meeting Reminder</h4>
+          <p>Team meeting in 30 minutes</p>
+          <span class="notification-time">1 hour ago</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CHAT WIDGET -->
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      <h3>Team Chat</h3>
+      <button id="closeChat" class="icon-btn" type="button" title="Close Chat">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot">
+        <div>Hello! How can I help you today? 😊</div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Type your message...">
+      <button id="chatSend" class="btn-primary" title="Send Message">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22,2 15,22 11,13 2,9 22,2"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <div class="contact-info">
+          <a href="tel:+1234567890" class="contact-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            (+254) 702-448767
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <div class="quick-links">
+          <a href="https://www.zerclix.com" target="_blank" rel="noopener">Zerclix Website</a>    
+          <a href="https://support.zerclix.com" target="_blank" rel="noopener">Support Portal</a>
+          <a href="https://blog.zerclix.com" target="_blank" rel="noopener">Company Blog</a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Connect With Us</h3>
+        <div class="social-links">
+          <a href="#" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </div>
+        <div class="brand-info">
+          <div class="logo-small">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="footerLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#0099ff;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <path d="M20,20 L80,20 L50,50 L80,80 L20,80 L50,50 Z" fill="url(#footerLogo)" />
+              <circle cx="50" cy="50" r="8" fill="#fff" />
+            </svg>
+          </div>
+          <p class="tagline">Empowering Digital Transformation</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Zerclix Technologies. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+  <script src="team.js"></script>
+</body>
+</html>

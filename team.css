@@ -1,0 +1,54 @@
+/* Team page additional styles for project controls */
+.project-controls { margin: 18px 0; background: rgba(255,255,255,0.02); padding: 16px; border-radius: 8px; }
+.project-controls-row { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+.project-info h3 { margin:0; font-size:1.1rem; }
+.project-actions .btn-secondary { margin-left:6px; }
+.composer { margin-bottom:12px; }
+#postInput { width:100%; min-height:72px; padding:10px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:#fff; resize:vertical; }
+.composer-actions { display:flex; gap:8px; align-items:center; margin-top:8px; }
+.attach-preview { display:flex; gap:8px; align-items:center; }
+.attach-preview .attach-preview-item { background:rgba(255,255,255,0.03); padding:6px 8px; border-radius:4px; font-size:0.85rem; }
+.btn-primary.loading:after { content: ''; display:inline-block; margin-left:8px; width:12px; height:12px; border:2px solid #fff; border-top-color:transparent; border-radius:50%; animation:spin 0.8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.input-warning { box-shadow: 0 0 0 3px rgba(255,165,0,0.12); }
+#postInput.clearing { transition: opacity .25s ease; opacity:0.4; }
+.project-feed { margin-top:8px; display:flex; flex-direction:column; gap:8px; }
+.project-post { background: rgba(255,255,255,0.02); padding:12px; border-radius:8px; }
+.post-header { display:flex; gap:10px; align-items:center; }
+.post-avatar { width:36px; height:36px; border-radius:50%; }
+.post-meta .post-author { font-weight:600; }
+.post-meta .post-time { font-size:0.8rem; color:var(--text-secondary); }
+.post-body { margin-top:8px; color:var(--text-primary); }
+.post-actions { margin-top:8px; display:flex; gap:10px; }
+.btn-link { background:none; border:none; color:var(--primary); cursor:pointer; }
+.reply { background: rgba(255,255,255,0.01); padding:6px; border-radius:6px; margin-top:6px; }
+.reply-box { display:flex; gap:8px; margin-top:8px; }
+.reply-input { flex:1; padding:6px; }
+.modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); align-items:center; justify-content:center; }
+.modal.active { display:flex; }
+.modal-content { background: var(--bg-secondary); color: var(--text-primary); padding:16px; border-radius:8px; width:420px; max-width:95%; }
+.modal-header { display:flex; justify-content:space-between; align-items:center; }
+.modal-body label { display:block; margin:8px 0; }
+.modal .close-modal { background:none; border:none; font-size:20px; color:var(--text-primary); cursor:pointer; }
+.project-kpi { font-size:0.9rem; color:var(--primary); }
+/* disabled button style */
+.btn.disabled, .btn.disabled:disabled, .btn-secondary.disabled, .btn-primary.disabled { opacity:0.5; cursor:not-allowed; box-shadow:none; }
+
+/* project files & upload previews */
+.project-file-row, .uploaded-file-row { display:flex; justify-content:space-between; padding:8px; border-radius:6px; background:rgba(255,255,255,0.02); margin-bottom:6px; font-size:0.95rem; color:var(--text-primary); }
+
+/* small responsive adjustments */
+@media (max-width:700px) { .project-controls-row { flex-direction:column; align-items:flex-start; } .project-actions { display:flex; flex-wrap:wrap; gap:6px; } }
+@media (max-width:700px) { .project-controls-row { flex-direction:column; align-items:flex-start; } .project-actions { display:flex; flex-wrap:wrap; gap:6px; } }
+
+/* Discussion board composer (project page - restored large Post style) */
+.discussion-board .composer { margin: 18px 0; }
+.discussion-board .composer textarea { width:100%; min-height:100px; padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:#eaf6ff; resize:vertical; font-size:1rem; }
+.discussion-board .composer-bar { display:flex; align-items:center; gap:12px; margin-top:12px; }
+.btn-attach { min-width:96px; padding:12px; border-radius:10px; }
+.attach-preview { display:flex; gap:8px; align-items:center; }
+.btn-post { flex:1; background: linear-gradient(90deg,#00e1ff,#4aa6ff); border:none; color:#001; font-weight:700; padding:14px 20px; border-radius:12px; box-shadow:0 6px 20px rgba(34,170,255,0.18); cursor:pointer; font-size:1.05rem; }
+.btn-post:active { transform: translateY(1px); }
+
+/* smaller screens */
+@media (max-width:700px) { .discussion-board .composer textarea{min-height:80px;} .btn-attach{min-width:76px;}}
